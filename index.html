@@ -4,32 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Disable Tools Protection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p, ul {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      color: #444;
+      text-align: left;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: '✔️ ';
+      margin-right: 5px;
+    }
+
+    textarea {
+      width: 90%;
+      max-width: 800px;
+      height: 300px;
+      margin: 20px auto;
+      display: block;
+      font-family: monospace;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .copy-confirmation {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <h1>Disable Tools – Advanced Page Protection</h1>
 
-  <p>
-    <strong>Disable Tools</strong> is a powerful security layer designed to protect your website from unauthorized access, page cloning, and source code inspection. This tool actively deters curious users and potential attackers from using browser features like "Inspect Element", right-click, or keyboard shortcuts commonly used to reveal sensitive site structure.
-  </p>
+  <p><strong>Disable Tools</strong> is a powerful security layer designed to protect your website from unauthorized access, page cloning, and source code inspection. This tool actively deters curious users and potential attackers from using browser features like "Inspect Element", right-click, or keyboard shortcuts.</p>
 
-  <p>
-    By integrating Disable Tools into your site, you can improve the overall security posture of your web application, reduce intellectual property theft, and discourage casual tampering.
-  </p>
+  <p>By integrating Disable Tools into your site, you can improve the overall security of your web application, reduce content theft, and discourage casual tampering.</p>
 
   <h2>Key Benefits:</h2>
   <ul>
-    <li>🔒 Prevents unauthorized cloning of website pages and assets.</li>
-    <li>🛡️ Disables common developer tools and browser debug options.</li>
-    <li>🚫 Blocks right-click and keyboard shortcuts (F12, Ctrl+Shift+I, etc.).</li>
-    <li>👁️‍🗨️ Obfuscates code visibility for non-authorized users.</li>
-    <li>🧩 Easily integrable with a single script tag.</li>
+    <li>Prevents unauthorized cloning of website pages and assets.</li>
+    <li>Disables common developer tools and browser debug options.</li>
+    <li>Blocks right-click and keyboard shortcuts (F12, Ctrl+Shift+I, etc.).</li>
+    <li>Obfuscates code visibility from unauthorized users.</li>
+    <li>Easy to integrate with a single script tag.</li>
   </ul>
 
-  <p>
-    Implementing <strong>Disable Tools</strong> is a seamless way to reinforce your site’s privacy and control over how your content is accessed or manipulated on the client side.
-  </p>
+  <textarea id="code" readonly>
+<!-- Embed external JavaScript to disable developer tools -->
+<script src="https://yourdomain.com/js/disable-tools.js"></script>
+  </textarea>
 
-  <!-- Embed external JavaScript to disable developer tools -->
-  <script src="https://yourdomain.com/js/disable-tools.js"></script>
+  <button onclick="copyCode()">Copy Code</button>
+  <div class="copy-confirmation" id="confirmation" style="display: none;">
+    ✅ Code copied to clipboard!
+  </div>
+
+  <script>
+    function copyCode() {
+      const code = document.getElementById('code');
+      code.select();
+      code.setSelectionRange(0, 99999); // For mobile
+      document.execCommand('copy');
+
+      const confirmation = document.getElementById('confirmation');
+      confirmation.style.display = 'block';
+
+      setTimeout(() => {
+        confirmation.style.display = 'none';
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
